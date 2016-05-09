@@ -1,5 +1,5 @@
-# docker-quickstart-cheatsheet
-This is a quick-start guide, more like a cheatsheet for docker containers.
+# Docker Quick-start Cheatsheet
+This is a quick-start guide, more like a cheatsheet for Docker containers.
 
 ### Basic concepts
 Container is like a virtual machine, which uses the Linux kernel of the host machine. Each container has its own independent Linux environment and namespace, but all of the containers running on a server share the same kernel. Docker is a tool for making and managing containers, just like VirtualBox is a tool for managing virtual machines.
@@ -11,21 +11,21 @@ Containers provide several benefits:
 3. Development: Software developers, data scientists, designers, etc. can experiment with Linux environments that are identical to the deployment environment without time-consuming setup procedures for test servers.
 
 ### Getting started
-Install docker from docker.com and start docker in terminal (If you are on mac, there is an app named "Docker Quickstart Terminal" in your Launchpad, which starts a Linux virtual machine and docker inside it). To get help use
+Install Docker from docker.com and start Docker in terminal (If you are on mac, there is an app named "Docker Quickstart Terminal" in your Launchpad, which starts a Linux virtual machine and Docker inside it). To get help use
 ```Bash
 docker --help
 ```
-A docker image is a snapshot of a container. An image does NOT save how the container is formed; it just saves the container in its last state. To get a list of docker images on your machine run:
+A Docker image is a snapshot of a container. An image does NOT save how the container is formed; it just saves the container in its last state. To get a list of Docker images on your machine run:
 ```Bash
 docker images
 ```
-To get help for a specific docker command, e.g. `docker images`, use:
+To get help for a specific Docker command, e.g. `docker images`, use:
 ```Bash
 docker images --help
 ```
 
 ### Basic commands
-To get a docker image from docker hub e.g. ubuntu image run:
+To get a Docker image from Docker Hub e.g. ubuntu image run:
 ```Bash
 docker pull ubuntu
 ```
@@ -74,7 +74,7 @@ docker build .
 ```
 Make sure that you are in the directory of the `Dockerfile`, when running it as above. A sample `Dockerfile` is provided in this repository.
 
-Once you have a docker image that you want to save it on docker hub, make an account there, and back in the terminal login with:
+Once you have a Docker image that you want to save it on Docker Hub, make an account there, and back in the terminal login with:
 ```Bash
 docker login
 ```
@@ -84,7 +84,7 @@ docker tag IMAGE-ID DOCKERHUB-USERNAME/IMAGE-NAME:IMAGE-TAG
 ```
 e.g. `docker tag e051d77e98f8 atamahjoubfar/handy-ubuntu:latest`.
 
-Then, send it to docker hub by running:
+Then, send it to Docker Hub by running:
 ```Bash
 docker push DOCKERHUB-USERNAME/IMAGE-NAME:IMAGE-TAG
 ```

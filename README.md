@@ -68,3 +68,24 @@ docker commit CONTAINER-ID
 ```
 But this is not the recommended way to save changes and generate and image because this leads to the [golden image problem](http://stackoverflow.com/questions/26110828/should-i-use-dockerfiles-or-image-commits/3#3 "See this explanation on Stack Overflow"), which essentially means you forget how you got the container to that state.
 
+The right way to make the images is to write step by step procedure of forming them in a file named `Dockerfile`, and then building an image from it:
+```Bash
+docker build .
+```
+Make sure that you are in the directory of the `Dockerfile`, when running it as above. A sample `Dockerfile` is provided in this repository.
+
+Once you have a docker image that you want to save it on docker hub, make an account there, and back in the terminal login with:
+```Bash
+docker login
+```
+If your image is not named and tagged properly, tag it with:
+```Bash
+docker tag IMAGE-ID DOCKERHUB-USERNAME/IMAGE-NAME:IMAGE-TAG
+```
+e.g. `docker tag e051d77e98f8 atamahjoubfar/handy-ubuntu:latest`.
+
+Then, send it to docker hub by running:
+```Bash
+docker push DOCKERHUB-USERNAME/IMAGE-NAME:IMAGE-TAG
+```
+e.g. `docker push atamahjoubfar/handy-ubuntu:latest`.

@@ -46,7 +46,7 @@ docker run IMAGE-ID
 ```
 or if you want an interactive terminal to remain open after running the image:
 ```Bash
-docker run IMAGE-ID
+docker run -it IMAGE-ID
 ```
 Running an images makes a new container. 
 

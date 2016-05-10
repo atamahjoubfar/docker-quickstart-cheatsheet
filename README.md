@@ -99,3 +99,19 @@ Then, send it to Docker Hub by running:
 docker push DOCKERHUB-USERNAME/IMAGE-NAME:IMAGE-TAG
 ```
 e.g. `docker push atamahjoubfar/handy-ubuntu:latest`.
+
+### Networking
+By default container ports are not exposed to the host machine, and you should specify the ports that you want to be forwarded from the host machine. This can be done by running the `docker run` command with extra options about port forwarding:
+```Bash
+docker run -p HOST-PORTS:CONTAINER-PORTS IMAGE-ID
+```
+For example:
+```Bash
+docker run -p 4999-5003:4999-5003 -it 2592718a33b0
+```
+In addition, in Mac OS, you should forward the port from the host machine to the virtual Linux machine that docker is running on. The easy way to set this is to use the VirtualBox GUI for setting as shown in the image below:
+
+![A snapshot image of VirtualBox port forwarding](VirtualBox%20port%20forwarding.png "VirtualBox port forwarding")
+
+Also, note that in principle, one should be able to expose a port by `EXPOSE` instruction in `Dockerfile` and `docker run -P`, but I was not able to get it work on Mac. 
+

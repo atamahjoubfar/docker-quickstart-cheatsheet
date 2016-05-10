@@ -54,7 +54,17 @@ You can get a full list of containers with:
 ```Bash
 docker ps -a
 ```
-Pay attention that many of the containers can be already closed (exited). You can run multiple containers starting from the same image, and their status would be independent.
+Pay attention that many of the containers can be already closed (exited). You can run multiple containers starting from the same image, and their status would be independent of each other.
+
+To restart an exited container use:
+```Bash
+docker restart CONTAINER-ID
+```
+and to attach it to the terminal use:
+```Bash
+docker attach CONTAINER-ID
+```
+You may have to press enter/return once more to see the result of the attaching.
 
 To remove a container use:
 ```Bash

@@ -101,7 +101,7 @@ docker push DOCKERHUB-USERNAME/IMAGE-NAME:IMAGE-TAG
 e.g. `docker push atamahjoubfar/handy-ubuntu:latest`.
 
 ### Networking
-By default container ports are not exposed to the host machine, and you should specify the ports that you want to be forwarded from the host machine. This can be done by running the `docker run` command with extra options about port forwarding:
+By default, container ports are not exposed to the host machine. They can be used by processes inside the container, but not from outside of the container. If you want to expose a port, you should specify the ports that you want to be forwarded from the host machine. This can be done by running the `docker run` command with extra options about port forwarding:
 ```Bash
 docker run -p HOST-PORTS:CONTAINER-PORTS IMAGE-ID
 ```

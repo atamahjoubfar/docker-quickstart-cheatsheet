@@ -115,3 +115,10 @@ In addition, in Mac OS, you should forward the port from the host machine to the
 
 Also, note that in principle, one should be able to expose a port by `EXPOSE` instruction in `Dockerfile` and `docker run -P`, but I was not able to get it work on Mac. 
 
+### Services
+It is possible to run multiple services in a single docker, but it is not the recommended way. One of the goals of using containers is to separate concerns regarding multiple services. 
+
+To form a single package with multiple services, `docker-compose` should be used. `docker-compose` runs multiple containers linked to each other as a single package. The composition is defined in a file named `docker-compose.yml` and the following command can be used to update build of a package and run it:
+```Bash
+docker-compose up --build
+```

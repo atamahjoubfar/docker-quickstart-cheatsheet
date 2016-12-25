@@ -125,6 +125,16 @@ and delete a volume by:
 docker volume rm VOLUME-NAME
 ```
 
+I didn't find a direct way to check the contents of a volume, but I managed to do that by mounting it on a new container e.g.
+```Bash
+docker run -it --volume=VOLUME-NAME:/mydata/myvolume ubuntu bash
+```
+and then in the containers bash shell going to the mount directory and listing the files:
+```Bash
+cd /mydata/myvolume
+ls -alh
+```
+
 ### Services
 It is possible to run multiple services in a single docker, but it is not the recommended way. One of the goals of using containers is to separate concerns regarding multiple services. 
 
@@ -138,3 +148,18 @@ docker-compose down -v
 ```
 
 If one of the images in the `docker-compose.yml` generates its own volume in its `Dockerfile`, you can find the mount destination of that volume in its container by `docker inspect CONTAINER-ID` and mount your own volume there to prevent container from making its own volume.
+
+### Clean up
+
+You can delete all of the containers by:
+```Bash
+docker rm $(docker ps -a -q)
+```
+Delete all of the images by:
+```Bash
+docker rmi $(docker images -q)
+```
+And delete all of the volumes by:
+```Bash
+docker volume rm $(docker volume list -q)
+```

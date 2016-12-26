@@ -149,6 +149,12 @@ docker-compose down -v
 
 If one of the images in the `docker-compose.yml` generates its own volume in its `Dockerfile`, you can find the mount destination of that volume in its container by `docker inspect CONTAINER-ID` and mount your own volume there to prevent container from making its own volume.
 
+You can get into the shell of the containers that are running, by connecting to them in another terminal window. Use `docker ps -a` to get the `CONTAINER-ID`, and then run:
+```
+docker exec -it CONTAINER-ID bash
+```
+You will be logged in as a root user into the container. If the container doesn't have `bash`, try `sh` instead. Type `exit` to exit the container.
+
 ### Clean up
 
 You can delete all of the containers by:

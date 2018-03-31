@@ -72,7 +72,6 @@ docker rm CONTAINER-ID
 ```
 
 You can save the state of a container by making an image from it:
-To remove a container use:
 ```Bash
 docker commit CONTAINER-ID
 ```

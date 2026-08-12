@@ -1,3 +1,5 @@
+
+
 # Docker Quick-start Cheatsheet
 This is a quick-start guide, more like a cheatsheet for Docker containers.
 
@@ -117,7 +119,7 @@ Also, note that in principle, one should be able to expose a port by `EXPOSE` in
 ### Data volumes
 Data volumes are used to preserve and share data between containers. You can get a full list of volumes by:
 ```Bash
-docker volume list
+docker volume ls
 ```
 and delete a volume by:
 ```Bash
@@ -166,5 +168,5 @@ docker rmi $(docker images -q)
 ```
 And delete all of the volumes by:
 ```Bash
-docker volume rm $(docker volume list -q)
+docker volume rm $(docker volume ls -q)
 ```
